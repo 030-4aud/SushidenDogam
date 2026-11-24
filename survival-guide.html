@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>스시덴도감</title>
-    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -16,8 +16,11 @@
             <nav id="topnav" class="top-nav"><a href="index.html">홈</a><a href="survival-guide.html">생존도감</a><a
                     href="experiences.html">경험 공유</a><a href="about.html">도감 소개</a></nav>
             <div class="header-actions">
-                <form class="header-search" action="survival-guide.html"><input placeholder="공략 검색..."
-                        aria-label="공략 검색"><button>⌕</button></form><a class="header-login" href="login.html">로그인</a>
+                <form class="header-search" action="survival-guide.html" method="get">
+                    <input type="search" name="q" placeholder="공략 검색..." aria-label="공략 검색">
+                    <button type="submit" aria-label="검색">⌕</button>
+                </form>
+                <a class="header-login" href="login.html">로그인</a>
             </div>
         </div>
     </header>
@@ -53,8 +56,10 @@
                         class="stage-arrow">공략 선택 →</span></a></div>
             <section class="search-panel">
                 <h2>🔎 원하는 공략을 검색해 보세요!</h2>
-                <form action="guide.html"><input type="search" placeholder="예) 첫 출근, 근로계약, 손님 응대" required><button
-                        class="btn btn-primary">검색</button></form>
+                <form action="survival-guide.html" method="get">
+                    <input type="search" name="q" placeholder="예) 첫 출근, 손님, 급여" aria-label="공략 검색">
+                    <button type="submit" class="btn btn-primary">검색</button>
+                </form>
             </section>
             <section class="section-block">
                 <div class="section-title">
@@ -62,7 +67,9 @@
                         <h2>전체 생존 공략</h2>
                     </div>
                 </div>
-                <div class="guide-grid">
+                <p id="search-status" role="status" hidden></p>
+                <a id="clear-search" href="survival-guide.html" hidden>전체 공략 보기</a>
+                <div class="guide-grid" data-search-results>
                     <article class="guide-card">
                         <div class="card-top"><span class="small-tag">알바 시작 전</span><span class="stars">★☆☆</span></div>
                         <h3><a href="guide.html">첫 출근, 이것만 챙기면 준비 완료!</a></h3>
@@ -107,7 +114,7 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/site.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>

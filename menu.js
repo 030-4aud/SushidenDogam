@@ -40,3 +40,32 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const results = document.querySelector('[data-search-results]');
+    if (!results) return;
+
+    const query = new URLSearchParams(window.location.search).get('q')?.trim();
+    if (!query) return;
+
+    const normalize = (text) => text.normalize('NFC').toLowerCase();
+    const keywords = normalize(query).split(/\s+/);
+    let count = 0;
+
+    for (const card of results.querySelectorAll('article')) {
+        const text = normalize(
+            Array.from(card.querySelectorAll('h3, .small-tag, p'), (element) => element.textContent)
+                .join(' ')
+        );
+        const matches = keywords.every((keyword) => text.includes(keyword));
+        card.hidden = !matches;
+        if (matches) count += 1;
+    }
+
+    const status = document.getElementById('search-status');
+    status.textContent = count
+        ? `“${query}” 검색 결과 ${count}개`
+        : `“${query}”에 해당하는 검색 결과가 없어요.`;
+    status.hidden = false;
+    document.getElementById('clear-search').hidden = false;
+});

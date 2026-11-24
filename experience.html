@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>스시덴도감</title>
-    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -16,8 +16,11 @@
             <nav id="topnav" class="top-nav"><a href="index.html">홈</a><a href="survival-guide.html">생존도감</a><a
                     href="experiences.html">경험 공유</a><a href="about.html">도감 소개</a></nav>
             <div class="header-actions">
-                <form class="header-search" action="survival-guide.html"><input placeholder="공략 검색..."
-                        aria-label="공략 검색"><button>⌕</button></form><a class="header-login" href="login.html">로그인</a>
+                <form class="header-search" action="survival-guide.html" method="get">
+                    <input type="search" name="q" placeholder="공략 검색..." aria-label="공략 검색">
+                    <button type="submit" aria-label="검색">⌕</button>
+                </form>
+                <a class="header-login" href="login.html">로그인</a>
             </div>
         </div>
     </header>
@@ -37,9 +40,13 @@
                         있어요</a><a class="chip" href="experiences.html">자유 이야기</a></div><a class="btn btn-primary"
                     href="login.html">✎ 경험 남기기</a>
             </div>
-            <form class="story-search" action="experiences.html"><input placeholder="경험 글 제목 또는 내용 검색"><button
-                    class="btn btn-outline">검색</button></form>
-            <div class="story-grid story-grid-full">
+            <form class="story-search" action="experiences.html" method="get">
+                <input type="search" name="q" placeholder="경험 글 제목 또는 내용 검색" aria-label="경험 글 검색">
+                <button type="submit" class="btn btn-outline">검색</button>
+            </form>
+            <p id="search-status" role="status" hidden></p>
+            <a id="clear-search" href="experiences.html" hidden>전체 경험 글 보기</a>
+            <div class="story-grid story-grid-full" data-search-results>
                 <article class="story-card">
                     <div class="story-illustration"><span>🍣</span><span class="small-tag">첫 출근 후기</span></div>
                     <h3><a href="experiences.html">첫 출근 전날의 준비 루틴</a></h3>
@@ -73,7 +80,7 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/site.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>

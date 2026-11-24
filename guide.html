@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>스시덴도감</title>
-    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -16,8 +16,11 @@
             <nav id="topnav" class="top-nav"><a href="index.html">홈</a><a href="survival-guide.html">생존도감</a><a
                     href="experiences.html">경험 공유</a><a href="about.html">도감 소개</a></nav>
             <div class="header-actions">
-                <form class="header-search" action="survival-guide.html"><input placeholder="공략 검색..."
-                        aria-label="공략 검색"><button>⌕</button></form><a class="header-login" href="login.html">로그인</a>
+                <form class="header-search" action="survival-guide.html" method="get">
+                    <input type="search" name="q" placeholder="공략 검색..." aria-label="공략 검색">
+                    <button type="submit" aria-label="검색">⌕</button>
+                </form>
+                <a class="header-login" href="login.html">로그인</a>
             </div>
         </div>
     </header>
@@ -93,7 +96,7 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/site.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>

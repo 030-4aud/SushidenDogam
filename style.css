@@ -1999,3 +1999,7 @@ p {
         transition: none !important
     }
 }
+
+[data-search-results]>[hidden] {
+    display: none;
+}
